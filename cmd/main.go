@@ -3,8 +3,9 @@ package main
 import (
 	// "net/http"
 
+	handler "questify/internal/handlers"
+
 	"github.com/gin-gonic/gin"
-	"questify/internal/handlers"
 )
 
 func main() {
