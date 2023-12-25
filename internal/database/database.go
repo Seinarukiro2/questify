@@ -10,7 +10,7 @@ import (
 
 // User represents a user in the database.
 type User struct {
-	ID        string    `gorm:"primaryKey"` // User ID
+	ID        uint      `gorm:"primaryKey;autoIncrement"` // User ID // ID почему то равен NULL
 	Name      string    // User name
 	CreatedAt time.Time // Creation timestamp
 	Password  string    // User password

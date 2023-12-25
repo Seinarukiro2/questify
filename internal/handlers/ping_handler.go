@@ -1,4 +1,4 @@
-package handler
+package handlers
 
 import (
 	"net/http"
@@ -7,5 +7,6 @@ import (
 )
 
 func PingPongHandler(c *gin.Context) {
+
 	c.JSON(http.StatusOK, gin.H{"message": "pong"})
 }
