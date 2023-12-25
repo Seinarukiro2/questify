@@ -8,12 +8,19 @@ import (
 )
 
 func CreateNewUserHandler(c *gin.Context) {
-	name := "Timur"
-	password := "123"
+	name := c.Query("name")
+	password := c.Query("password")
+
+	if name == "" || password == "" {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Параметры 'name' и 'password' обязательны"})
+		return
+	}
+
 	err := functions.CreateUserAndPrint(name, password)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
-	c.JSON(http.StatusOK, gin.H{"message": "User was created"})
+
+	c.JSON(http.StatusOK, gin.H{"message": "Пользователь был создан"})
 }
